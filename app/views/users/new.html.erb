@@ -10,8 +10,27 @@
   <% end %>
 
   <div>
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+  <div>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+  <div>
     <%= form.label :email %>
     <%= form.email_field :email %>
+  </div>
+  <div>
+    <%= form.label :rank %>
+    <%= form.text_field :rank %>
+  </div>
+  <div>
+    <%= form.label :bio %>
+    <%= form.text_area :bio %>
   </div>
   <div>
     <%= form.label :password %>
