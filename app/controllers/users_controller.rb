@@ -16,6 +16,28 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+
+    if @user.update(user_params)
+      redirect_to dashboard_path
+    else
+      render :edit
+    end
+  end
+
+  def show
+    user
+  end
+
+  def index
+    @users = User.all
+  end
+
   private
 
   def user_params
@@ -28,6 +50,10 @@ class UsersController < ApplicationController
       :first_name,
       :last_name
     )
+  end
+
+  def user
+    @user ||= User.find(params[:id])
   end
 end
 
