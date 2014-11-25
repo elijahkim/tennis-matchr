@@ -11,6 +11,15 @@
 </ul>
 
 <h3>Pending Match Requests</h3>
+<ul>
+  <% @incoming_match_requests.each do |incoming_match_request| %>
+    <li>
+      <p><%=incoming_match_request.requester_username %> would like to 
+      have a match with you.</p>
+      <p><%= link_to "Go to Request", incoming_match_request %>
+    </li>
+  <% end %>
+</ul>
 
 <h3>Match History</h3>
 
