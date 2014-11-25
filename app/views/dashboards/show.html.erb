@@ -1,7 +1,9 @@
 <h1><%= current_user.username %>'s Dashboard<h1>
 
 <h3>My Profile</h3>
+<p><%= link_to "Edit your profile", edit_user_path(current_user) %></p>
 <ul>
+  <li><%= image_tag current_user.image_url %></li>
   <li>Name: <%= current_user.first_name %> <%= current_user.last_name %></li>
   <li>Elo: <%= current_user.elo %></li>
   <li>Rank: <%= current_user.rank %></li>
