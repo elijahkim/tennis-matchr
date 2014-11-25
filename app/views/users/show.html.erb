@@ -8,3 +8,6 @@
 </ul>
 
 <h3>Match History</h3>
+
+<div>
+  <%= link_to "Request a match with #{@user.username}", new_user_match_request_path(@user) %>

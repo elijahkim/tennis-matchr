@@ -1,0 +1,16 @@
+<h1>Request a Match with <%= @opponent.username %></h1>
+
+<%= form_for [@opponent, @match_request] do |f| %>
+  <%= render partial: "app/error", locals: {object: @match_request } %>
+
+  <%= f.label :request_message, "Write a message" %>
+  <%= f.text_area :request_message %>
+
+  <%= f.label :start_date, "Between" %>
+  <%= f.date_field :start_date %>
+
+  <%= f.label :end_date, "and" %>
+  <%= f.date_field :end_date %>
+
+  <%= f.submit %>
+<% end %>
