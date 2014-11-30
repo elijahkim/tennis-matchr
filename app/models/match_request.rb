@@ -17,4 +17,8 @@ class MatchRequest < ActiveRecord::Base
   def self.pending
     where(confirmed: false)
   end
+
+  def get_comments
+    comments.order(created_at: :desc)
+  end
 end

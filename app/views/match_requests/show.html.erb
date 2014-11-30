@@ -15,7 +15,4 @@
   <%= f.submit %>
 <% end %>
 
-<% @match_request.comments.each do |comment| %>
-  <p><%= comment.content %></p>
-  <p>Commented by: <%= comment.user.username %></p>
-<% end %>
+<%= render @match_request.get_comments %>
