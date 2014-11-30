@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.new(comment_params)
     @comment.save
 
-    redirect_to @comment.match_request 
+    redirect_to @comment.match_request
   end
 
   def edit
