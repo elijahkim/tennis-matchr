@@ -7,14 +7,13 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @comment = Comment.find(params[:id])
+    comment
   end
 
   def update
-    @comment = Comment.find(params[:id])
-    @comment.update(comment_params)
+    comment.update(comment_params)
 
-    redirect_to @comment.match_request
+    redirect_to comment.match_request
   end
 
   def destroy
@@ -28,5 +27,9 @@ class CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:content, :match_request_id)
+  end
+
+  def comment
+    @comment ||= Comment.find(params[:id])
   end
 end

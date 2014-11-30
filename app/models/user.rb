@@ -8,14 +8,10 @@ class User < ActiveRecord::Base
   has_many :incoming_match_requests,
     class_name: "MatchRequest",
     foreign_key: "opponent_id"
-
   has_many :requesters, through: :incoming_match_requests
-
   has_many :outgoing_match_requests,
     class_name: "MatchRequest",
     foreign_key: "requester_id"
-
   has_many :opponents, through: :outgoing_match_requests
-
   has_many :comments
 end
