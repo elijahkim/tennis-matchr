@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :match_requests, only: [:new, :create]
   end
   resources :match_requests, only: [:show]
+  resources :comments, only: [:new, :create]
 
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard

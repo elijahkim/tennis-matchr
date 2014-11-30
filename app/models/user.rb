@@ -16,4 +16,6 @@ class User < ActiveRecord::Base
     foreign_key: "requester_id"
 
   has_many :opponents, through: :outgoing_match_requests
+
+  has_many :comments
 end

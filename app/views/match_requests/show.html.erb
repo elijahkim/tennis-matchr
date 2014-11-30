@@ -3,3 +3,19 @@
 <%= @match_request.opponent_username %></p>
 <p>Between <%= @match_request.start_date %> and <%= @match_request.end_date %></p>
 <p>Message: <%= @match_request.request_message %></p>
+
+<h2>Comments</h2>
+
+<%= form_for @comment do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+  <%= f.hidden_field :match_request_id, value: @match_request.id %>
+
+  <%= f.submit %>
+<% end %>
+
+<% @match_request.comments.each do |comment| %>
+  <p><%= comment.content %></p>
+  <p>Commented by: <%= comment.user.username %></p>
+<% end %>

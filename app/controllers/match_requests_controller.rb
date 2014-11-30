@@ -16,6 +16,7 @@ class MatchRequestsController < ApplicationController
 
   def show
     match_request
+    @comment = Comment.new
   end
 
   private

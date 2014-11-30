@@ -9,6 +9,7 @@ class MatchRequest < ActiveRecord::Base
 
   belongs_to :requester, class_name: "User"
   belongs_to :opponent, class_name: "User"
+  has_many :comments
 
   delegate :username, to: :requester, prefix: true
   delegate :username, to: :opponent, prefix: true
