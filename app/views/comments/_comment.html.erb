@@ -1,0 +1,13 @@
+<p><%= comment.content %></p>
+<p>Commented by <%= comment.username %>,
+<%= time_ago_in_words(comment.created_at) %> ago</p>
+<%= button_to(
+  "Delete",
+  match_request_comment_path(comment.match_request, comment),
+  method: :delete
+)%>
+<%= button_to(
+  "Edit",
+  edit_match_request_comment_path(comment.match_request, comment),
+  method: :get
+)%>

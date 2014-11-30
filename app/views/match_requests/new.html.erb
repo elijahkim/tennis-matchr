@@ -1,7 +1,7 @@
 <h1>Request a Match with <%= @opponent.username %></h1>
 
 <%= form_for [@opponent, @match_request] do |f| %>
-  <%= render partial: "app/error", locals: {object: @match_request } %>
+  <%= render partial: "app/error", locals: { object: @match_request } %>
 
   <%= f.label :request_message, "Write a message" %>
   <%= f.text_area :request_message %>
