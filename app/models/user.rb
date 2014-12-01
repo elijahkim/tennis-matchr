@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
     class_name: "MatchRequest",
     foreign_key: "requester_id"
   has_many :requesters, through: :incoming_match_requests
+
+  def requested(user)
+    opponents.include?(user)
+  end
 end
