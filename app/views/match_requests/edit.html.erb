@@ -3,11 +3,8 @@
 <%= form_for @match_request do |f| %>
   <%= render partial: "app/error", locals: { object: @match_request } %>
 
-  <%= f.label :match_date %>
-  <%= f.date_field :match_date %>
-
-  <%= f.label :match_time %>
-  <%= f.time_field :match_time %>
+  <%= f.label :match_date_time %>
+  <input class="datetimepicker" type="text" name="match_request[match_date_time]" > 
 
   <%= f.submit %>
 <% end %>

@@ -43,8 +43,7 @@ class MatchRequestsController < ApplicationController
       :request_message,
       :start_date,
       :end_date,
-      :match_time,
-      :match_date
+      :match_date_time
     )
   end
 
