@@ -3,3 +3,9 @@
 <%= @match_request.opponent_username %></p>
 <p>Between <%= @match_request.start_date %> and <%= @match_request.end_date %></p>
 <p>Message: <%= @match_request.request_message %></p>
+
+<% if @match_request.confirmed %>
+  <p>Confirmed</p>
+<% else %>
+  <%= button_to "Accept", match_request_accept_path(@match_request) %>
+<% end %>
