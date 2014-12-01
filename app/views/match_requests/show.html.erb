@@ -1,5 +1,29 @@
 <h1>Match Request</h1>
+
 <p><%= @match_request.requester_username %> would like to have a match with
 <%= @match_request.opponent_username %></p>
 <p>Between <%= @match_request.start_date %> and <%= @match_request.end_date %></p>
 <p>Message: <%= @match_request.request_message %></p>
+
+<p>
+The Final Date and Time is set to: 
+<%= @match_request.match_date_time %>
+</p>
+
+<div>
+  <%= button_to "Edit Request", edit_match_request_path(@match_request), method: :get %>
+  <%= button_to "Accept" %>
+</div>
+
+<h2>Comments</h2>
+
+<%= form_for @comment do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+  <%= f.hidden_field :match_request_id, value: @match_request.id %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= render @match_request.get_comments %>

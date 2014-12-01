@@ -6,7 +6,7 @@ class CreateMatchRequests < ActiveRecord::Migration
       t.text :request_message, null: false
       t.date :start_date
       t.date :end_date
-      t.time :match_time
+      t.datetime :match_date_time
       t.boolean :confirmed, null: false, default: false
 
       t.timestamps
