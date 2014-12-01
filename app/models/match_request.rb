@@ -16,4 +16,8 @@ class MatchRequest < ActiveRecord::Base
   def self.pending
     where(confirmed: false)
   end
+
+  def confirm
+    update(confirmed: true)
+  end
 end
