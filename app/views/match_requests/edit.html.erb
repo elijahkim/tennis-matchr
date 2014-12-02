@@ -1,0 +1,10 @@
+<h1>Edit Match Request</h1>
+
+<%= form_for @match_request do |f| %>
+  <%= render partial: "app/error", locals: { object: @match_request } %>
+
+  <%= f.label :match_at %>
+  <%= f.datetime_field :match_at, class: "datetimepicker" %>
+
+  <%= f.submit %>
+<% end %>

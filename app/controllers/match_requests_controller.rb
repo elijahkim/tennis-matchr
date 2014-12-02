@@ -16,6 +16,17 @@ class MatchRequestsController < ApplicationController
 
   def show
     match_request
+    @comment = Comment.new
+  end
+
+  def edit
+    match_request
+  end
+
+  def update
+    match_request.update(match_request_params)
+
+    redirect_to match_request
   end
 
   private
@@ -29,9 +40,10 @@ class MatchRequestsController < ApplicationController
 
   def match_request_params
     params.require(:match_request).permit(
+      :end_date,
+      :match_at,
       :request_message,
-      :start_date,
-      :end_date
+      :start_date
     )
   end
 
