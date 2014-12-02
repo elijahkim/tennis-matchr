@@ -8,23 +8,20 @@
   Between <%= @match_request.start_date %> and <%= @match_request.end_date %>
 </p>
 <p>Message: <%= @match_request.request_message %></p>
-
-<% if @match_request.confirmed %>
-  <p>Confirmed</p>
-<% else %>
-  <%= button_to "Accept", match_request_accept_path(@match_request) %>
-<% end %>
-<p>
   The Final Date and Time is set to:
   <%= @match_request.match_at || 'Undecided' %>
 </p>
 
 <div>
-  <%= button_to(
-    "Edit Request",
-    edit_match_request_path(@match_request), method: :get
-  )%>
-  <%= button_to "Accept" %>
+  <% if @match_request.confirmed? %>
+    <p>Match is confirmed</p>
+  <% else %>
+    <%= link_to(
+      "Edit Request",
+      edit_match_request_path(@match_request)
+    )%>
+    <%= button_to "Accept", match_request_accept_path(@match_request) %>
+  <% end %>
 </div>
 
 <h2>Comments</h2>

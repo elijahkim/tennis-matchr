@@ -15,7 +15,14 @@ class User < ActiveRecord::Base
     foreign_key: "requester_id"
   has_many :requesters, through: :incoming_match_requests
 
-  def requested(user)
-    opponents.include?(user)
+  delegate :pending, to: :incoming_match_requests, prefix: true
+  delegate :pending, to: :outgoing_match_requests, prefix: true
+
+  def requested?(user)
+    !!requested_match(user)
+  end
+
+  def requested_match(user)
+    outgoing_match_requests_pending.find_by(opponent: user)
   end
 end
