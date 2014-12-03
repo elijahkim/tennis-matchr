@@ -3,6 +3,7 @@ class MatchRequest < ActiveRecord::Base
   validates :end_date, presence: true
   validates :request_message, presence: true
   validates :opponent, uniqueness: {
+    conditions: -> { where(confirmed: false) },
     scope: :requester,
     message: "should be unique"
   }
@@ -17,6 +18,10 @@ class MatchRequest < ActiveRecord::Base
 
   def self.pending
     where(confirmed: false)
+  end
+
+  def confirm!
+    update(confirmed: true)
   end
 
   def get_comments

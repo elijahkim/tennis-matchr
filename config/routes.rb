@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :users, except: [:destroy] do
     resources :match_requests, only: [:new, :create]
   end
-  resources :match_requests, only: [:show, :edit, :update] do
+  resources :match_requests, only: [:show] do
+    resource :accept, only: [:create]
     resources :comments, only: [:create, :destroy, :edit, :update]
   end
 
