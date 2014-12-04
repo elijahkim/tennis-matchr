@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   end
 
   def requested_match(user)
-    outoing_match_requests_pending.find_by(opponent: user)
+    outgoing_match_requests_pending.find_by(opponent: user)
   end
 
   def matches
