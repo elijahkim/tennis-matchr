@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141204190409) do
+ActiveRecord::Schema.define(version: 20141201192926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,14 +53,20 @@ ActiveRecord::Schema.define(version: 20141204190409) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "match_at"
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
   end
 
   create_table "matches", force: true do |t|
     t.integer  "challenger_id", null: false
-    t.integer  "defender_id",   null: false
+    t.integer  "opponent_id",   null: false
     t.datetime "match_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+=======
+>>>>>>> 4429b23... A user can post a comment on a match_request
+>>>>>>> A user can accept a match_request
   end
 
   create_table "users", force: true do |t|
