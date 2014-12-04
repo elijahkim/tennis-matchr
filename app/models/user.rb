@@ -6,10 +6,16 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
 
   has_many :comments
+  has_many :incoming_matches,
+    class_name: "Match",
+    foreign_key: "defender_id"
   has_many :incoming_match_requests,
     class_name: "MatchRequest",
     foreign_key: "opponent_id"
   has_many :opponents, through: :outgoing_match_requests
+  has_many :outgoing_matches,
+    class_name: "Match",
+    foreign_key: "challenger_id"
   has_many :outgoing_match_requests,
     class_name: "MatchRequest",
     foreign_key: "requester_id"
@@ -23,6 +29,10 @@ class User < ActiveRecord::Base
   end
 
   def requested_match(user)
-    outgoing_match_requests_pending.find_by(opponent: user)
+    outoing_match_requests_pending.find_by(opponent: user)
+  end
+
+  def matches
+    (outgoing_matches.append incoming_matches).order(match_at: :asc)
   end
 end
