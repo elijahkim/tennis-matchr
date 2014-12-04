@@ -11,12 +11,22 @@
 </ul>
 
 <h3>Pending Match Requests</h3>
+<h5>Incoming Match Requests</h5>
 <ul>
-  <% @incoming_match_requests.each do |incoming_match_request| %>
+  <% current_user.incoming_match_requests_pending.each do |incoming_match_request| %>
     <li>
-      <p><%=incoming_match_request.requester_username %> would like to 
+      <p><%= incoming_match_request.requester_username %> would like to
       have a match with you.</p>
       <p><%= link_to "Go to Request", incoming_match_request %>
+    </li>
+  <% end %>
+</ul>
+<h5>Outgoing Match Requests</h5>
+<ul>
+  <% current_user.outgoing_match_requests_pending.each do |outgoing_match_request| %>
+    <li>
+      <p>Request with <%= outgoing_match_request.opponent_username %></p>
+      <p><%= link_to "Go to Request", outgoing_match_request %></p>
     </li>
   <% end %>
 </ul>
