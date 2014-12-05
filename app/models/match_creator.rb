@@ -10,7 +10,7 @@ class MatchCreator
 
     Match.create(
       challenger: match_request.requester,
-      opponent: match_request.opponent,
+      defender: match_request.opponent,
       match_at: match_request.match_at
     )
   end

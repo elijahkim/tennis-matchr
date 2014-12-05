@@ -2,4 +2,5 @@
   <p><%= match.challenger_username %> vs. <%= match.defender_username %></p>
   <p><%= match.match_at %></p>
   <p><%= link_to "Match Link", match %></p>
+  <p><%= link_to "Submit Score", edit_match_path(match) %></p>
 </div>
