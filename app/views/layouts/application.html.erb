@@ -9,14 +9,12 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= body_class %>">
-    <% if signed_in? %>
-      <%= link_to "Dashboard", dashboard_path %>
-    <% end %>
-    <%= link_to "Users", users_path %>
     <%= render "flashes" -%>
     <% if signed_in? %>
+      <%= link_to "Dashboard", dashboard_path %>
       <%= link_to "Sign out", session_path, method: :delete %>
     <% else %>
+      <%= link_to "Users", users_path %>
       <%= link_to "Sign in", new_session_path %>
       <%= link_to "Sign up", new_user_path %>
     <% end %>
