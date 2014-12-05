@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resource :accept, only: [:create]
     resources :comments, only: [:create, :destroy, :edit, :update]
   end
+  resources :matches, only: [:show]
 
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard

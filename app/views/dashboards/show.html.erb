@@ -11,12 +11,7 @@
 </ul>
 
 <h3>Your Matches</h3>
-<% current_user.matches.each do |match| %>
-  <ul>
-    <li><%= match.challenger.username %> vs. <%= match.defender.username %></li>
-    <li><%= match.match_at %></li>
-  </ul>
-<% end %>
+<%= render current_user.matches %>
 
 <h3>Pending Match Requests</h3>
 <h5>Incoming Match Requests</h5>
