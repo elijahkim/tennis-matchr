@@ -5,4 +5,13 @@ class Match < ActiveRecord::Base
 
   delegate :username, to: :challenger, prefix: true
   delegate :username, to: :defender, prefix: true
+  delegate :username, to: :winner, prefix: true
+
+  def winner?
+    winner
+  end
+
+  def owner?(user)
+    defender == user || challenger == user
+  end
 end
