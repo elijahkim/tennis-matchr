@@ -16,6 +16,7 @@ class MatchesController < ApplicationController
     @match = find_match_from_player
     if @match
       @match.update(match_params)
+      EloUpdater.new(@match).update_elo
       redirect_to dashboard_path
     else
       you_naughty_boy
