@@ -1,4 +1,6 @@
 class MatchRequest < ActiveRecord::Base
+  include ActiveModel::Validations
+
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :request_message, presence: true
@@ -7,6 +9,10 @@ class MatchRequest < ActiveRecord::Base
     scope: :requester,
     message: "should be unique"
   }
+
+  validates_with DateRangeValidator
+  validates_with DateRangeLengthValidator
+  validates_with MatchDateInDateRangeValidator
 
   belongs_to :requester, class_name: "User"
   belongs_to :opponent, class_name: "User"
