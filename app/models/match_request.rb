@@ -33,4 +33,8 @@ class MatchRequest < ActiveRecord::Base
   def get_comments
     comments.order(created_at: :desc)
   end
+
+  def player?(user)
+    requester == user || opponent == user
+  end
 end

@@ -4,6 +4,6 @@
 
 <% if @match.winner? %>
   <p><%= @match.winner_username %> is the winner</p>
-<% elsif @match.owner?(current_user) && !@match.winner? %>
+<% elsif @match.player?(current_user) && !@match.winner? %>
   <p><%= link_to "Submit Score", edit_match_path(@match) %></p>
 <% end %>

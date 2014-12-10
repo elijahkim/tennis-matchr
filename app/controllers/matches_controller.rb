@@ -14,12 +14,11 @@ class MatchesController < ApplicationController
 
   def update
     @match = find_match_from_player
-    if @match
-      @match.update(match_params)
+    if @match.update(match_params)
       EloUpdater.new(@match).update_elo
       redirect_to dashboard_path
     else
-      you_naughty_boy
+      :edit
     end
   end
 
@@ -34,11 +33,6 @@ class MatchesController < ApplicationController
       "defender_id = :user OR challenger_id = :user",
       user: current_user.id
     ).find_by(id: params[:id])
-  end
-
-  def you_naughty_boy
-    flash[:notice] = "You can't do that"
-    redirect_to root_path
   end
 
   def match_params
