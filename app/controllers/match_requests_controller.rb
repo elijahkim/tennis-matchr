@@ -31,6 +31,11 @@ class MatchRequestsController < ApplicationController
     end
   end
 
+  def destroy
+    match_request.destroy
+    redirect_to dashboard_path
+  end
+
   private
 
   def new_match_request_params
