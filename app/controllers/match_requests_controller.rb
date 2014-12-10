@@ -24,9 +24,11 @@ class MatchRequestsController < ApplicationController
   end
 
   def update
-    match_request.update(match_request_params)
-
-    redirect_to match_request
+    if match_request.update(match_request_params)
+      redirect_to match_request
+    else
+      render :edit
+    end
   end
 
   private
