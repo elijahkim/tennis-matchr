@@ -16,13 +16,17 @@
 <div>
   <% if @match_request.confirmed? %>
     <p>Match is confirmed</p>
-  <% else %>
+  <% elsif !@match_request.confirmed? && @match_request.player?(current_user) %>
     <%= link_to(
-      "Edit Request",
+      "Set Match Time",
       edit_match_request_path(@match_request)
     )%>
     <%= button_to "Accept", match_request_accept_path(@match_request) %>
-    <%= button_to "Decline", match_request_path(@match_request), method: :delete %>
+    <%= button_to(
+      "Decline",
+      match_request_path(@match_request),
+      method: :delete
+    )%>
   <% end %>
 </div>
 

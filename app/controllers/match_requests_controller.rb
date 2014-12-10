@@ -20,11 +20,15 @@ class MatchRequestsController < ApplicationController
   end
 
   def edit
-    match_request
+    @match_request = find_match_request_from_player
+    if @match_request.blank?
+      you_naughty_boy
+    end
   end
 
   def update
-    if match_request.update(match_request_params)
+    @match_request = find_match_request_from_player
+    if @match_request.update(match_request_params)
       redirect_to match_request
     else
       render :edit
@@ -32,11 +36,20 @@ class MatchRequestsController < ApplicationController
   end
 
   def destroy
+    match_request = MatchRequest.find(params[:id])
     match_request.destroy
+
     redirect_to dashboard_path
   end
 
   private
+
+  def find_match_request_from_player
+    MatchRequest.where(
+      "requester_id = :user OR opponent_id = :user",
+      user: current_user.id
+    ).find_by(id: params[:id])
+  end
 
   def new_match_request_params
     match_request_params.merge(
@@ -52,10 +65,6 @@ class MatchRequestsController < ApplicationController
       :request_message,
       :start_date
     )
-  end
-
-  def match_request
-    @match_request ||= MatchRequest.find(params[:id])
   end
 
   def get_opponent

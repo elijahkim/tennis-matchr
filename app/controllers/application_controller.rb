@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
   def current_user
     super || Guest.new
   end
+
+  def you_naughty_boy
+    flash[:notice] = "You can't do that"
+    redirect_to root_path
+  end
 end
