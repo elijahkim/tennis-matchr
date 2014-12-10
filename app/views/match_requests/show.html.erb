@@ -22,6 +22,7 @@
       edit_match_request_path(@match_request)
     )%>
     <%= button_to "Accept", match_request_accept_path(@match_request) %>
+    <%= button_to "Decline", match_request_path(@match_request), method: :delete %>
   <% end %>
 </div>
 
