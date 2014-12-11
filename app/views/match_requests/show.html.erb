@@ -2,8 +2,10 @@
 
 <p>
   <%= link_to @match_request.requester_username, @match_request.requester %>
+  (<%= @match_request.requester_elo %>)
   would like to have a match with
   <%= link_to @match_request.opponent_username, @match_request.opponent %>
+  (<%= @match_request.opponent_elo %>)
 </p>
 <p>
   Between <%= @match_request.start_date %> and <%= @match_request.end_date %>

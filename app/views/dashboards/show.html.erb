@@ -10,7 +10,7 @@
   <li>Description: <%= current_user.bio %></li>
 </ul>
 
-<h3>Your Matches</h3>
+<h3>Your Recent Matches</h3>
 <%= render current_user.matches %>
 
 <h3>Pending Match Requests</h3>
@@ -18,9 +18,13 @@
 <ul>
   <% current_user.incoming_match_requests_pending.each do |incoming_match_request| %>
     <li>
-      <p><%= incoming_match_request.requester_username %> would like to
-      have a match with you.</p>
-      <p><%= link_to "Go to Request", incoming_match_request %>
+      <p>
+        <%= incoming_match_request.requester_username %>
+        (<%= incoming_match_request.requester_elo %>) 
+        would like to
+        have a match with you.
+      </p>
+      <p><%= link_to "Go to Request", incoming_match_request %></p>
     </li>
   <% end %>
 </ul>
@@ -28,7 +32,10 @@
 <ul>
   <% current_user.outgoing_match_requests_pending.each do |outgoing_match_request| %>
     <li>
-      <p>Request with <%= outgoing_match_request.opponent_username %></p>
+      <p>
+        Request with <%= outgoing_match_request.opponent_username %>
+        (<% outgoing_match_request.opponent_elo %>)
+      </p>
       <p><%= link_to "Go to Request", outgoing_match_request %></p>
     </li>
   <% end %>

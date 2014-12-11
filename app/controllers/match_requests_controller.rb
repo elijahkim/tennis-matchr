@@ -15,7 +15,7 @@ class MatchRequestsController < ApplicationController
   end
 
   def show
-    match_request
+    @match_request = MatchRequest.find(params[:id])
     @comment = Comment.new
   end
 
@@ -29,7 +29,7 @@ class MatchRequestsController < ApplicationController
   def update
     @match_request = find_match_request_from_player
     if @match_request.update(match_request_params)
-      redirect_to match_request
+      redirect_to @match_request
     else
       render :edit
     end
@@ -54,7 +54,9 @@ class MatchRequestsController < ApplicationController
   def new_match_request_params
     match_request_params.merge(
       requester: current_user,
-      opponent: get_opponent
+      requester_elo: current_user.elo,
+      opponent: get_opponent,
+      opponent_elo: get_opponent.elo
     )
   end
 
@@ -68,6 +70,6 @@ class MatchRequestsController < ApplicationController
   end
 
   def get_opponent
-    @opponent = User.find(params[:user_id])
+    @opponent ||= User.find(params[:user_id])
   end
 end

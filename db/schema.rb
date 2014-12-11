@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141205130000) do
+ActiveRecord::Schema.define(version: 20141211191617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,24 +44,28 @@ ActiveRecord::Schema.define(version: 20141205130000) do
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "match_requests", force: true do |t|
-    t.integer  "requester_id"
-    t.integer  "opponent_id"
+    t.integer  "requester_id",                    null: false
+    t.integer  "opponent_id",                     null: false
     t.text     "request_message",                 null: false
-    t.date     "start_date"
-    t.date     "end_date"
+    t.date     "start_date",                      null: false
+    t.date     "end_date",                        null: false
     t.boolean  "confirmed",       default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "match_at"
+    t.integer  "opponent_elo",                    null: false
+    t.integer  "requester_elo",                   null: false
   end
 
   create_table "matches", force: true do |t|
-    t.integer  "challenger_id", null: false
-    t.integer  "defender_id",   null: false
-    t.datetime "match_at"
+    t.integer  "challenger_id",  null: false
+    t.integer  "defender_id",    null: false
+    t.datetime "match_at",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "winner_id"
+    t.integer  "challenger_elo", null: false
+    t.integer  "defender_elo",   null: false
   end
 
   create_table "users", force: true do |t|

@@ -1,4 +1,7 @@
-<h1><%= @match.challenger_username %> vs. <%= @match.defender_username %></h1>
+<h1>
+  <%= @match.challenger_username %>(<%= @match.challenger_elo %>) vs.
+  <%= @match.defender_username %>(<%= @match.defender_elo %>)
+</h1>
 
 <p><%= @match.match_at %></p>
 
