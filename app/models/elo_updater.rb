@@ -1,17 +1,14 @@
 class EloUpdater
-  attr_accessor :match, :new_elos
+  attr_accessor :match
 
   def initialize(match)
     @match = match
-    @new_elos = []
   end
 
   def update_elo
     new_elos = get_new_elos
-    match.defender.elo = new_elos[0]
-    match.defender.save
-    match.challenger.elo = new_elos[1]
-    match.challenger.save
+    match.defender.update(elo: new_elos[0])
+    match.challenger.update(elo: new_elos[1])
   end
 
   private
@@ -22,6 +19,6 @@ class EloUpdater
       match.challenger,
       match.winner
     )
-    self.new_elos = elo_calculator.calculate_elo
+    elo_calculator.calculate_elo
   end
 end

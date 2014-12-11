@@ -1,5 +1,8 @@
 <div class="match-info">
-  <p><%= match.challenger_username %> vs. <%= match.defender_username %></p>
+  <p>
+    <%= match.challenger_username %>(<%= match.challenger_elo %>) vs.
+    <%= match.defender_username %>(<%= match.defender_elo %>)
+  </p>
   <p><%= match.match_at %></p>
   <p><%= link_to "Match Link", match %></p>
   <% if match.winner? %>

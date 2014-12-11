@@ -1,26 +1,31 @@
 class MatchRequest < ActiveRecord::Base
   include ActiveModel::Validations
 
-  validates :start_date, presence: true
+  belongs_to :opponent, class_name: "User"
+  belongs_to :requester, class_name: "User"
+
+  has_many :comments
+
+  validates :confirmed, presence: true
   validates :end_date, presence: true
-  validates :request_message, presence: true
+  validates :opponent, presence: true
   validates :opponent, uniqueness: {
     conditions: -> { where(confirmed: false) },
     scope: :requester,
     message: "should be unique"
   }
+  validates :opponent_elo, presence: true
+  validates :requester, presence: true
+  validates :requester_elo, presence: true
+  validates :request_message, presence: true
+  validates :start_date, presence: true
 
-  validates_with DateRangeValidator
   validates_with DateRangeLengthValidator
+  validates_with DateRangeValidator
   validates_with MatchDateInDateRangeValidator
 
-  belongs_to :requester, class_name: "User"
-  belongs_to :opponent, class_name: "User"
-
-  has_many :comments
-
-  delegate :username, to: :requester, prefix: true
   delegate :username, to: :opponent, prefix: true
+  delegate :username, to: :requester, prefix: true
 
   def self.pending
     where(confirmed: false)

@@ -7,11 +7,17 @@ class Match < ActiveRecord::Base
   delegate :username, to: :defender, prefix: true
   delegate :username, to: :winner, prefix: true
 
+  validates :challenger, presence: true
+  validates :challenger_elo, presence: true
+  validates :defender, presence: true
+  validates :defender_elo, presence: true
+  validates :match_at, presence: true
+
   def winner?
     winner
   end
 
-  def owner?(user)
+  def player?(user)
     defender == user || challenger == user
   end
 end
