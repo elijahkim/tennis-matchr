@@ -1,19 +1,23 @@
 class ExpectedScoreCalculator
-  attr_reader :t_ratings
+  attr_reader :transformed_ratings
 
-  def initialize(t_ratings)
-    @t_ratings = t_ratings
+  def initialize(players)
+    @transformed_ratings = get_transformed_ratings(players)
   end
 
-  def calculate_expected_scores
-    t_ratings.map do |t_rating|
-      t_rating / combined_t_ratings
+  def results
+    transformed_ratings.map do |transformed_rating|
+      transformed_rating / combined_transformed_ratings(transformed_ratings)
     end
   end
 
   private
 
-  def combined_t_ratings
-    t_ratings.reduce(:+)
+  def combined_transformed_ratings(transformed_ratings)
+    transformed_ratings.reduce(:+)
+  end
+
+  def get_transformed_ratings(players)
+    players.map { |player| player.transformed_rating }
   end
 end

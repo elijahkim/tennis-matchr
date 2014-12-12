@@ -6,19 +6,29 @@ class EloUpdater
   end
 
   def update_elo
-    new_elos = get_new_elos
-    match.defender.update(elo: new_elos[0])
-    match.challenger.update(elo: new_elos[1])
+    match.defender.update(elo: defender_new_elo)
+    match.challenger.update(elo: challenger_new_elo)
   end
 
   private
 
-  def get_new_elos
-    elo_calculator = EloCalculator.new(
+  def win?(player, winner)
+    player == winner
+  end
+
+  def defender_new_elo
+    EloCalculator.new(
       match.defender,
       match.challenger,
-      match.winner
-    )
-    elo_calculator.calculate_elo
+      win?(match.defender, match.winner)
+    ).results
+  end
+
+  def challenger_new_elo
+    EloCalculator.new(
+      match.challenger,
+      match.defender,
+      win?(match.challenger, match.winner)
+    ).results
   end
 end

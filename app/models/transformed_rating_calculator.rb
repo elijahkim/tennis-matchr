@@ -1,20 +1,17 @@
 class TransformedRatingCalculator
-  attr_reader :players
-  attr_accessor :t_ratings
+  attr_reader :player
 
-  def initialize(players)
-    @players = players
+  def initialize(player)
+    @player = player
   end
 
-  def calculate_transformed_ratings
-    players.map do |player|
-      t_rating_calculation(player.elo)
-    end
+  def results
+    t_rating_calculation
   end
 
   private
 
-  def t_rating_calculation(elo)
-    (10**(elo / 400)).to_f
+  def t_rating_calculation
+    (10**(player.elo / 400)).to_f
   end
 end
