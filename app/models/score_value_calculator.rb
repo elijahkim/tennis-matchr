@@ -1,24 +1,20 @@
 class ScoreValueCalculator
-  attr_reader :players, :winner
+  attr_reader :players, :result
   attr_accessor :scores
 
-  def initialize(players, winner)
+  def initialize(players, result)
     @players = players
-    @winner = winner
+    @result = result
     @scores = []
   end
 
-  def score_values
-    if winner == players[0]
-      scores[0] = 1
-      scores[1] = 0
-    elsif winner == players[1]
-      scores[0] = 0
-      scores[1] = 1
-    elsif winner == "tie"
-      scores[0] = 0.5
-      scores[1] = 0.5
+  def results
+    if result
+      scores.push(1)
+      scores.push(0)
+    else
+      scores.push(0)
+      scores.push(1)
     end
-    scores
   end
 end

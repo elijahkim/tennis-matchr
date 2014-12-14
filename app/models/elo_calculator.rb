@@ -1,38 +1,58 @@
 class EloCalculator
-  attr_reader :winner, :players
-  attr_accessor :expected_scores, :scores, :new_elos
+  attr_reader :result, :players, :challenger
 
   K_FACTOR = 32
 
-  def initialize(player1, player2, winner)
-    @winner = winner
-    @players = [player1, player2]
-    @expected_scores = []
-    @scores = []
-    @new_elos = []
+  def initialize(challenger, opponent, result)
+    @result = result
+    @players = [challenger, opponent]
+    @challenger = challenger
+    set_data!(players, result)
   end
 
-  def calculate_elo
-    get_data
-    players.map.with_index do |player, index|
-      calculate_new_elo(player.elo, scores[index], expected_scores[index])
-    end
+  def results
+    calculate_elo(challenger)
   end
 
   private
 
-  def get_data
-    t_rating_calculator = TransformedRatingCalculator.new(players)
-    t_ratings = t_rating_calculator.calculate_transformed_ratings
-
-    expected_score_calculator = ExpectedScoreCalculator.new(t_ratings)
-    self.expected_scores = expected_score_calculator.calculate_expected_scores
-
-    score_calculator = ScoreValueCalculator.new(players, winner)
-    self.scores = score_calculator.score_values
+  def set_data!(players, result)
+    set_transformed_ratings!(players)
+    set_expected_scores!(players)
+    set_score_values!(players, result)
   end
 
-  def calculate_new_elo(elo, score, expected_score)
-    elo + (K_FACTOR * (score - expected_score))
+  def calculate_elo(player)
+    player.elo + (K_FACTOR * (player.score_value - player.expected_score))
+  end
+
+  def set_transformed_ratings!(players)
+    players.each do |player|
+      player.transformed_rating = transformed_rating(player)
+    end
+  end
+
+  def set_expected_scores!(players)
+    expected_scores(players).each_with_index do |score, index|
+      players[index].expected_score = score
+    end
+  end
+
+  def set_score_values!(players, result)
+    score_values(players, result).each_with_index do |score, index|
+      players[index].score_value = score
+    end
+  end
+
+  def transformed_rating(player)
+    TransformedRatingCalculator.new(player).results
+  end
+
+  def expected_scores(players)
+    ExpectedScoreCalculator.new(players).results
+  end
+
+  def score_values(players, result)
+    ScoreValueCalculator.new(players, result).results
   end
 end

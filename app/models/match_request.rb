@@ -6,7 +6,6 @@ class MatchRequest < ActiveRecord::Base
 
   has_many :comments
 
-  validates :confirmed, presence: true
   validates :end_date, presence: true
   validates :opponent, presence: true
   validates :opponent, uniqueness: {
