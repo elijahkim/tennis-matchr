@@ -12,6 +12,6 @@ class TransformedRatingCalculator
   private
 
   def t_rating_calculation
-    (10**(player.elo / 400)).to_f
+    (10**(player.elo.to_f / 400))
   end
 end

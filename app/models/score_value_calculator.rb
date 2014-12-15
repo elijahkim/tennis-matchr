@@ -1,9 +1,8 @@
 class ScoreValueCalculator
-  attr_reader :players, :result
+  attr_reader :result
   attr_accessor :scores
 
-  def initialize(players, result)
-    @players = players
+  def initialize(result)
     @result = result
     @scores = []
   end
