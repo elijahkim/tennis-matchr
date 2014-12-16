@@ -1,0 +1,15 @@
+<ul class="player-stats">
+  <li>Name: <%= user.first_name %> <%= user.last_name %></li>
+  <li>Elo: <%= user.elo %></li>
+  <li>Rank: <%= user.rank %></li>
+  <li>Description: <%= user.bio %></li>
+  <% if user == current_user %>
+    <li>
+      <%= link_to(
+        "Edit your profile",
+        edit_user_path(user),
+        class: "edit-profile"
+      ) %>
+    </li>
+  <% end %>
+</ul>
