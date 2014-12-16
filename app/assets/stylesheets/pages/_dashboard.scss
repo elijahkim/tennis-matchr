@@ -1,0 +1,23 @@
+.profile{
+  display: block;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.profile-thumbnail {
+  @include span-columns(4);
+  border-radius: 5%;
+  float: left;
+  padding: 0em, 1em, 0em, 1em;
+}
+
+.player-stats {
+  @include span-columns(8);
+  @include omega();
+  float: right;
+}
+
+.matches {
+  clear: both;
+  padding-top: 1em;
+}

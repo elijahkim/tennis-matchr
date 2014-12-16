@@ -1,0 +1,22 @@
+header {
+  background-color: $blue;
+
+  h2 {
+    float: left;
+  }
+
+  nav {
+    float: right;
+    padding: .5em;
+
+    .flash {
+      text-align: center;
+    }
+  }
+
+  li {
+    display: inline;
+    padding: .5em;
+    white-space: nowrap;
+  }
+}

@@ -1,12 +1,14 @@
-<li>
-  <%= link_to user_path(user) do %>
-    <ul>
-      <li><%= image_tag user.image_url, width: 200 %></li>
-      <li><%= user.username %></li>
-      <li><%= user.first_name %> <%= user.last_name %></li>
-      <li><%= user.rank %></li>
-      <li><%= user.elo %></li>
-      <li><%= user.location %></li>
-    </ul>
-  <% end %>
-</li>
+<div class="box">
+<ul>
+  <li>
+    <%= link_to(user_path(user)) do %>
+      <%= image_tag user.image_url, width: 200 %>
+    <% end %>
+  </li>
+  <li><%= user.username %></li>
+  <li><%= user.first_name %> <%= user.last_name %></li>
+  <li><%= user.rank %></li>
+  <li><%= user.elo %></li>
+  <li><%= user.location %></li>
+</ul>
+</div>

@@ -1,0 +1,11 @@
+.container {
+  @include outer-container;
+  clear: both;
+  margin-bottom: 3em;
+  padding-top: 1em;
+  text-align: left;
+}
+
+img {
+  border-radius: 5%;
+}
