@@ -6,7 +6,6 @@ class MatchRequest < ActiveRecord::Base
 
   has_many :comments
 
-  validates :end_date, presence: true
   validates :opponent, presence: true
   validates :opponent, uniqueness: {
     conditions: -> { where(confirmed: false) },
@@ -17,9 +16,7 @@ class MatchRequest < ActiveRecord::Base
   validates :requester, presence: true
   validates :requester_elo, presence: true
   validates :request_message, presence: true
-  validates :start_date, presence: true
 
-  validates_with DateRangeLengthValidator
   validates_with DateRangeValidator
   validates_with MatchDateInDateRangeValidator
 

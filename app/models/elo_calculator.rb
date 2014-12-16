@@ -39,7 +39,7 @@ class EloCalculator
   end
 
   def set_score_values!(players, result)
-    score_values(players, result).each_with_index do |score, index|
+    score_values(result).each_with_index do |score, index|
       players[index].score_value = score
     end
   end
@@ -52,7 +52,7 @@ class EloCalculator
     ExpectedScoreCalculator.new(players).results
   end
 
-  def score_values(players, result)
-    ScoreValueCalculator.new(players, result).results
+  def score_values(result)
+    ScoreValueCalculator.new(result).results
   end
 end
