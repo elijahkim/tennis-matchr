@@ -1,7 +1,9 @@
 header {
-  background-color: $blue;
+  @include clearfix;
+  background-color: $light-gray;
+  padding: 1em 0 1em 0;
 
-  h2 {
+  h1 {
     float: left;
   }
 

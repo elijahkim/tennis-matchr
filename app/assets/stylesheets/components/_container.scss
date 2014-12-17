@@ -2,8 +2,11 @@
   @include outer-container;
   clear: both;
   margin-bottom: 3em;
-  padding-top: 1em;
+  padding: 1em 0 1em 0;
   text-align: left;
+  width: 50em;
+  margin: 0 auto;
+  display: block;
 }
 
 img {

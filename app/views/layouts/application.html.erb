@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <h2>Tennis Matchr</h2>
+      <h1><%= link_to "Tennis Matchr", root_path %></h1>
       <nav>
         <div class="flash"><%= render "flashes" -%></div>
         <ul>
@@ -22,7 +22,8 @@
           <li><%= link_to "Sign in", new_session_path %></li>
           <li><%= link_to "Sign up", new_user_path  %></li>
         <% end %>
-      <nav>
+        </ul>
+      </nav>
     </header>
 
     <div class="container">
