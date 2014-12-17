@@ -3,6 +3,7 @@ class MatchesController < ApplicationController
 
   def show
     @match = find_match
+    decorate_match
   end
 
   def edit
@@ -24,6 +25,12 @@ class MatchesController < ApplicationController
   end
 
   private
+
+  def decorate_match
+    unless @match.winner?
+      @match = UncompletedMatch.new(@match)
+    end
+  end 
 
   def find_match
     Match.find(params[:id])
