@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy, :edit, :update]
   end
   resources :matches, only: [:show, :edit, :update]
+  resource :match_history, only: [:show]
 
   constraints Monban::Constraints::SignedIn.new do
     root "dashboards#show", as: :dashboard
