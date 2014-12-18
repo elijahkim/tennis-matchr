@@ -1,0 +1,15 @@
+<h1>Match History</h1>
+
+<ul class="match-history-list">
+  <% @matches.each do |match| %>
+    <li class="<%= match.match_outcome_class %>">
+      <div class="match-stats">
+        <p><%= match.challenger_username %> vs. <%= match.defender_username %></p>
+        <p><%= match.updated_at.strftime("%F") %></p>
+        <p><%= match.win_or_lose %></p>
+        <p><%= match.elo_delta %> </p>
+        <p class="match-link"><%= link_to "Match Link", match_path(match) %></p>
+      </div>
+    </li>
+  <% end %>
+</ul>
