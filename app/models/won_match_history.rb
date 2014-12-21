@@ -15,6 +15,6 @@ class WonMatchHistory < SimpleDelegator
   end
 
   def win_or_lose
-    "win"
+    "won"
   end
 end
