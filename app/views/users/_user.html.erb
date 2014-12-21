@@ -2,7 +2,7 @@
 <ul>
   <li>
     <%= link_to(user_path(user)) do %>
-      <%= image_tag user.image_url, width: 200 %>
+      <div class="image-container" style="background-image: url('<%= user.image_url %>');"></div>
     <% end %>
   </li>
   <li><%= user.username %></li>

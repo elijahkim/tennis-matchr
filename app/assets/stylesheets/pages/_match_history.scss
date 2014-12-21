@@ -1,0 +1,30 @@
+.match-history-list {
+  li {
+    @include span-columns(12);
+    border: .3em solid;
+    margin: .3em;
+    padding-top: .65em;
+  }
+
+  .match-stats-winner {
+    border-color: green;
+  }
+
+  .match-stats-loser {
+    border-color: red;
+  }
+}
+
+.match-stats {
+  p {
+    @include span-columns(2);
+    @include omega();
+    display: inline;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  .match-link {
+    @include span-columns(4);
+  }
+}

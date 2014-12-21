@@ -1,0 +1,14 @@
+.box {
+  @include span-columns(3);
+  @include omega(4n);
+}
+
+.image-container {
+  height: 150px;
+  background-size: cover;
+  background-position: center center;
+
+  img {
+    width: 100%;
+  }
+}
