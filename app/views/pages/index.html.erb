@@ -1,0 +1,58 @@
+<div class="home-images">
+  <div class="owl-carousel">
+    <div>
+      <div class="banner-text">
+        <h1>Find Your Perfect Match</h1>
+        <h3>Elo Ranking Helps Find Your Partner </h3>
+        <%= button_to "Sign Up", new_user_path, class: :button %>
+      </div>
+    <div class="banner-image" style="background-image: url('<%= asset_path "Roger.jpg" %>');"></div>
+    </div>
+    <div>
+      <div class="banner-text">
+        <h1>See Who Is Around You</h1>
+        <h3>No More Searching</h3>
+        <%= button_to "Sign Up", new_user_path, class: :button %>
+      </div>
+    <div class="banner-image" style="background-image: url('<%= asset_path "Sharapova.jpg" %>');"></div>
+    </div>
+    <div>
+      <div class="banner-text">
+        <h1>See Tangable Growth</h1>
+        <h3>Match History Graphs Show Progress</h3>
+        <%= button_to "Sign Up", new_user_path, class: :button %>
+      </div>
+    <div class="banner-image" style="background-image: url('<%= asset_path "djokovic.jpg" %>');"></div>
+    </div>
+    <div>
+      <div class="banner-text">
+        <h1>Something Something</h1>
+        <h3>Something Something Something</h3>
+        <%= button_to "Sign Up", new_user_path, class: :button %>
+      </div>
+    <div class="banner-image" style="background-image: url('<%= asset_path "Ivanovic.jpg" %>');"></div>
+    </div>
+  </div>
+</div>
+
+<div class="how-it-works">
+  <h2>How it Works</h2>
+    <ul>
+      <li>
+        <%= image_tag "computer.png" %>
+        <h5>Challenge an opponent</h5>
+      </li>
+      <li>
+        <%= image_tag "crossed-racquets.png" %>
+        <h5>Have a Match</h5>
+      </li>
+      <li>
+        <%= image_tag "pen.png" %>
+        <h5>Record the score</h5>
+      </li>
+      <li>
+        <%= image_tag "graph.png" %>
+        <h5>See Progress</h5>
+      </li>
+    </ul>
+</div>

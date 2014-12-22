@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="ROBOTS" content="NOODP" />
+    <meta name="viewport" content="initial-scale=1" />
+    <title><%= title %></title>
+    <%= stylesheet_link_tag :application, media: "all" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <h1><%= link_to "Tennis Matchr", root_path %></h1>
+      <nav>
+        <ul>
+          <li><%= link_to "Users", users_path %></li>
+        <% if signed_in? %>
+          <li><%= link_to "Match History", match_history_path %></li>
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Sign out", session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign in", new_session_path %></li>
+          <li><%= link_to "Sign up", new_user_path  %></li>
+        <% end %>
+        </ul>
+      </nav>
+    </header>
+
+    <%= yield %>
+
+    <%= render "javascript" %>
+  </body>
+</html>
