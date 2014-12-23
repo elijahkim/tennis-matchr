@@ -22,6 +22,8 @@ class MatchRequest < ActiveRecord::Base
 
   delegate :username, to: :opponent, prefix: true
   delegate :username, to: :requester, prefix: true
+  delegate :elo, to: :opponent, prefix: true
+  delegate :elo, to: :requster, prefix: true
 
   def self.pending
     where(confirmed: false)

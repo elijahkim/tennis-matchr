@@ -1,6 +1,7 @@
 .box {
   @include span-columns(3);
-  @include omega(4n);
+  @include omega(5n);
+  padding-top: 1em;
 }
 
 .image-container {

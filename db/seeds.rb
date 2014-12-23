@@ -6,12 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+require "date"
+
 user = User.new(
-  email: "test@test.com",
-  username: "elikim",
-  first_name: "Elijah",
-  last_name: "Kim",
-  location: "New Jersey",
+  email: "test1@test.com",
+  username: "test1",
+  first_name: "test",
+  last_name: "one",
+  location: "Testville",
   rank: 4.0,
   elo: 1400,
   image_url: "http://bit.ly/11UkzCF",
@@ -22,13 +24,13 @@ user = User.new(
 user.save
 
 user = User.new(
-  email: "tester@tester.com",
-  username: "eli",
-  first_name: "Bob",
-  last_name: "Ert",
-  location: "New Jersey",
+  email: "test2@tester.com",
+  username: "test2",
+  first_name: "test",
+  last_name: "two",
+  location: "Testville",
   rank: 5.0,
-  elo: 1400,
+  elo: 1300,
   image_url: "http://bit.ly/11UkzCF",
   bio: "I'm the greatest",
   password_digest: Monban.hash_token("password")
@@ -50,3 +52,95 @@ user = User.new(
 )
 
 user.save
+
+user = User.new(
+  email: "test3@tester.com",
+  username: "test3",
+  first_name: "test",
+  last_name: "three",
+  location: "Testville",
+  rank: 5.0,
+  elo: 1200,
+  image_url: "http://bit.ly/11UkzCF",
+  bio: "I'm the greatest",
+  password_digest: Monban.hash_token("password")
+)
+
+user.save
+
+user = User.new(
+  email: "test4@tester.com",
+  username: "test4",
+  first_name: "test",
+  last_name: "four",
+  location: "Testville",
+  rank: 5.0,
+  elo: 1500,
+  image_url: "http://bit.ly/11UkzCF",
+  bio: "I'm the greatest",
+  password_digest: Monban.hash_token("password")
+)
+
+user.save
+
+match_request = MatchRequest.new(
+  requester_id: 1,
+  opponent_id: 2,
+  request_message: "Match?",
+  start_date: DateTime.now,
+  end_date: DateTime.now + 20,
+  confirmed: false,
+  match_at: DateTime.now + 10,
+  opponent_elo: 1400,
+  requester_elo: 1400
+)
+
+match_request.save
+
+match = Match.new(
+  challenger_id: 1,
+  defender_id: 2,
+  match_at: DateTime.now,
+  winner_id: 1,
+  challenger_elo: 1500,
+  defender_elo: 1400,
+  elo_delta: 10
+)
+
+match.save
+
+match = Match.new(
+  challenger_id: 1,
+  defender_id: 2,
+  match_at: DateTime.now,
+  winner_id: 1,
+  challenger_elo: 1500,
+  defender_elo: 1400,
+  elo_delta: 10
+)
+
+match.save
+
+match = Match.new(
+  challenger_id: 1,
+  defender_id: 2,
+  match_at: DateTime.now,
+  winner_id: 2,
+  challenger_elo: 1500,
+  defender_elo: 1400,
+  elo_delta: 10
+)
+
+match.save
+
+match = Match.new(
+  challenger_id: 1,
+  defender_id: 2,
+  match_at: DateTime.now,
+  winner_id: 1,
+  challenger_elo: 1500,
+  defender_elo: 1400,
+  elo_delta: 10
+)
+
+match.save
