@@ -12,3 +12,16 @@ be able to find accurate and competitive matches.
 
 * [Tennis Match](http://tennismatchr.elijah.kim)
 * [Trello](https://trello.com/b/lbcAWTts/tennis-match)
+
+Seeds
+--------------
+Test users:
+
+* Username: Test1 || PW: password
+* Username: Test2 || PW: password
+* Username: Test3 || PW: password
+* Username: Test4 || PW: password
+* Username: admin || PW: password
+
+* Test1 has 4 previous matches
+* Test1 has 1 pending match request
