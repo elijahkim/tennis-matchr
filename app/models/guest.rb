@@ -6,4 +6,8 @@ class Guest
   def id
     "0"
   end
+
+  def requested?(_user)
+    false
+  end
 end

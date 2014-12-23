@@ -17,7 +17,7 @@
         match_request_path(current_user.requested_match(@user))
       ) %>
     </p>
-  <% else %>
+  <% elsif signed_in? %>
     <%= link_to(
       "Request a match with #{@user.username}",
       new_user_match_request_path(@user)
