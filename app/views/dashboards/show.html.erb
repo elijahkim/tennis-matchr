@@ -15,8 +15,10 @@
   <% current_user.incoming_match_requests_pending.each do |incoming_match_request| %>
     <li>
       <p>
-        <%= incoming_match_request.requester_username %>
-        (<%= incoming_match_request.requester_elo %>) 
+        <%= link_to incoming_match_request.requester do %>
+          <%= incoming_match_request.requester_username %>
+          (<%= incoming_match_request.requester_elo %>)
+        <% end %>
         would like to
         have a match with you.
       </p>
@@ -29,8 +31,11 @@
   <% current_user.outgoing_match_requests_pending.each do |outgoing_match_request| %>
     <li>
       <p>
-        Request with <%= outgoing_match_request.opponent_username %>
-        (<% outgoing_match_request.opponent_elo %>)
+      Request with 
+      <%= link_to outgoing_match_request.opponent do %>
+        <%= outgoing_match_request.opponent_username %>
+        (<%= outgoing_match_request.opponent_elo %>)
+      <% end %>
       </p>
       <p><%= link_to "Go to Request", outgoing_match_request %></p>
     </li>
