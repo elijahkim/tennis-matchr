@@ -8,6 +8,8 @@ class MatchRequestsController < ApplicationController
     get_opponent
     @match_request = MatchRequest.new(new_match_request_params)
     if @match_request.save
+      MatchRequestActivityCreator.new(@match_request).
+        create_match_request_activities
       redirect_to @match_request
     else
       render :new
@@ -37,6 +39,8 @@ class MatchRequestsController < ApplicationController
 
   def destroy
     match_request = MatchRequest.find(params[:id])
+    MatchRequestActivityCreator.new(match_request).
+      destroy_match_request_activities
     match_request.destroy
 
     redirect_to dashboard_path
@@ -54,9 +58,7 @@ class MatchRequestsController < ApplicationController
   def new_match_request_params
     match_request_params.merge(
       requester: current_user,
-      requester_elo: current_user.elo,
       opponent: get_opponent,
-      opponent_elo: get_opponent.elo
     )
   end
 

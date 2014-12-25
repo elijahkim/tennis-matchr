@@ -9,7 +9,7 @@
 <h3>Match History</h3>
 
 <div>
-  <% if current_user.requested?(@user) %> 
+  <% if current_user.requested?(@user) %>
     <p> You have an open match request with <%= @user.username %></p>
     <p>
       <%= link_to(

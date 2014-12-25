@@ -17,6 +17,7 @@ class MatchesController < ApplicationController
     @match = find_match_from_player
     if @match.update(match_params)
       EloUpdater.new(@match).update_elo
+      MatchActivityCreator.new(@match).update_match_activities
       flash[:notice] = "Match has been successfully submitted"
       redirect_to dashboard_path
     else

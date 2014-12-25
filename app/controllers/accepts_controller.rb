@@ -2,8 +2,10 @@ class AcceptsController < ApplicationController
   before_action :check_for_match_date, only: [:create]
 
   def create
-    match_creator = MatchCreator.new(match_request)
-    match_creator.new_match
+    MatchCreator.new(match_request).new_match
+    MatchRequestActivityCreator.
+      new(match_request).
+      accept_match_request_activities
 
     redirect_to :back
   end

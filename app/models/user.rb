@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
     foreign_key: "requester_id"
   )
   has_many :requesters, through: :incoming_match_requests
+  has_many :activities
 
   delegate :pending, to: :incoming_match_requests, prefix: true
   delegate :pending, to: :outgoing_match_requests, prefix: true
