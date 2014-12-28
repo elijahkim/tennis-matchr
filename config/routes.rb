@@ -12,9 +12,10 @@ Rails.application.routes.draw do
   end
   resources :matches, only: [:show, :edit, :update]
   resource :match_history, only: [:show]
+  resource :activity_feeds, only: [:show]
 
   constraints Monban::Constraints::SignedIn.new do
-    root "dashboards#show", as: :dashboard
+    root "activity_feeds#show", as: :dashboard
   end
 
   constraints Monban::Constraints::SignedOut.new do

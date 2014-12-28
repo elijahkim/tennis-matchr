@@ -90,9 +90,7 @@ match_request = MatchRequest.new(
   start_date: DateTime.now,
   end_date: DateTime.now + 20,
   confirmed: false,
-  match_at: DateTime.now + 10,
-  opponent_elo: 1400,
-  requester_elo: 1400
+  match_at: DateTime.now + 10
 )
 
 match_request.save
