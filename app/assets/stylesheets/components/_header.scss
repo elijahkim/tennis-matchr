@@ -1,6 +1,6 @@
 header {
+  @include outer-container;
   @include clearfix;
-  background-color: $light-gray;
   padding: 1em 0 1em 0;
 
   h1 {

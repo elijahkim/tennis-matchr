@@ -15,5 +15,15 @@
 //= require_tree .
 //= require jquery.datetimepicker
 //= require jquery.datetimepicker/init
+//= require owl.carousel
 
 $('.datetimepicker').datetimepicker();
+$(".owl-carousel").owlCarousel({
+  navigation: true,
+  slideSpeed: 300,
+  paginationSpeed: 400,
+  singleItem:true,
+  autoPlay: 10000,
+  pagination: false,
+  navigation: false
+ });

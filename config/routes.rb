@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   constraints Monban::Constraints::SignedOut.new do
-    root "sessions#new"
+    root "pages#show", id: "index",  as: :root
   end
+
+  get "pages/*id" => "pages#show", as: :page, format: false
 end
