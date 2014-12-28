@@ -1,0 +1,9 @@
+<h1>Pending Matches</h1>
+
+<% @matches.each do |match| %>
+  <div class="activity">
+    <%= link_to match_path(match) do %>
+      <%= match.challenger_username %> vs <%= match.defender_username %>
+    <% end %>
+  </div>
+<% end %>

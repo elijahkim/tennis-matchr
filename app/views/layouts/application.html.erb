@@ -15,7 +15,10 @@
         <ul>
           <li><%= link_to "Users", users_path %></li>
         <% if signed_in? %>
+          <li><%= link_to "Match Requests", match_requests_path %></li>
+          <li><%= link_to "Pending Matches", matches_path %></li>
           <li><%= link_to "Match History", match_history_path %></li>
+          <li><%= link_to "My Profile", user_path(current_user) %></li>
           <li><%= link_to "Sign out", session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "Sign in", new_session_path %></li>

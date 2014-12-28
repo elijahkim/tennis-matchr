@@ -1,12 +1,14 @@
 class MatchHistoriesController < ApplicationController
   def show
-    @matches = current_user_matches.map do |match|
+    @matches = current_user_matches.order(created_at: :desc).map do |match|
       if match.winner == current_user
         WonMatchHistory.new(match)
       else
         LostMatchHistory.new(match)
       end
     end
+
+    @matches = Kaminari.paginate_array(@matches).page(params[:page])
   end
 
   private

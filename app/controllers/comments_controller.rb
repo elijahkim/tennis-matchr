@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authorize, only: [:edit, :destroy]
   def create
     @comment = current_user.comments.new(new_comment_params)
     @comment.save
@@ -34,5 +35,11 @@ class CommentsController < ApplicationController
 
   def comment
     @comment ||= Comment.find(params[:id])
+  end
+
+  def authorize
+    unless comment.user == current_user
+      redirect_to root_path
+    end
   end
 end

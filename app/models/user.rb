@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :transformed_rating, :expected_score, :score_value
+  paginates_per 20
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true

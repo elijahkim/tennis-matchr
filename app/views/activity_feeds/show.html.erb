@@ -2,4 +2,5 @@
 <h1>Activity Feed</h1>
 
 <%= render @activities || "You don't have any activity" %>
+<%= paginate @activities %>
 </container>
