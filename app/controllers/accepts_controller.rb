@@ -1,5 +1,6 @@
 class AcceptsController < ApplicationController
   before_action :check_for_match_date, only: [:create]
+  before_action :authorize, only: [:create]
 
   def create
     MatchCreator.new(match_request).new_match
@@ -20,6 +21,12 @@ class AcceptsController < ApplicationController
     unless match_request.match_at
       flash[:notice] = "You must set a match date"
       redirect_to :back
+    end
+  end
+
+  def authorize
+    unless match_request.opponent == current_user
+      redirect_to root_path
     end
   end
 end

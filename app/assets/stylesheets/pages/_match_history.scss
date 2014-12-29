@@ -24,7 +24,11 @@
     vertical-align: middle;
   }
 
-  .match-link {
+  .username {
     @include span-columns(4);
+  }
+
+  .match-link {
+    @include span-columns(2);
   }
 }

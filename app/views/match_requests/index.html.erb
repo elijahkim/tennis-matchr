@@ -1,0 +1,33 @@
+<h1>Match Requests</h1>
+<h5>Incoming Match Requests</h5>
+<ul>
+  <% current_user.incoming_match_requests_pending.each do |incoming_match_request| %>
+    <li>
+      <p>
+        <%= link_to incoming_match_request.requester do %>
+          <%= incoming_match_request.requester_username %>
+          (<%= incoming_match_request.requester_elo %>)
+        <% end %>
+        would like to
+        have a match with you.
+      </p>
+      <p><%= link_to "Go to Request", incoming_match_request %></p>
+    </li>
+  <% end %>
+</ul>
+<h5>Outgoing Match Requests</h5>
+<ul>
+  <% current_user.outgoing_match_requests_pending.each do |outgoing_match_request| %>
+    <li>
+      <p>
+      Request with
+      <%= link_to outgoing_match_request.opponent do %>
+        <%= outgoing_match_request.opponent_username %>
+        (<%= outgoing_match_request.opponent_elo %>)
+      <% end %>
+      </p>
+      <p><%= link_to "Go to Request", outgoing_match_request %></p>
+    </li>
+  <% end %>
+</ul>
+</div>

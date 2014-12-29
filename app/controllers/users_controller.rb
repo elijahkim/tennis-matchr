@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = current_user
 
     if @user.update(user_params)
-      redirect_to dashboard_path
+      redirect_to @user
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all.order(created_at: :desc).page params[:page]
   end
 
   private

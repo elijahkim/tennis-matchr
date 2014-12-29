@@ -25,6 +25,10 @@ class MatchesController < ApplicationController
     end
   end
 
+  def index
+    @matches = current_user.matches.where(winner: nil)
+  end
+
   private
 
   def decorate_match
