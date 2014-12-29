@@ -1,4 +1,5 @@
 <div class="activity">
   <p><%= activity.name %></p>
+  <%= link_to "link", activity.subject %>
   <small><%= time_ago_in_words(activity.created_at) %> ago</small>
 </div>
