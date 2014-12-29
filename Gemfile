@@ -23,6 +23,7 @@ gem "rails", "4.1.8"
 gem "recipient_interceptor"
 gem "sass-rails", "~> 4.0.3"
 gem "simple_form"
+gem "sunspot_rails"
 gem "title"
 gem "uglifier"
 gem "unicorn"
@@ -31,6 +32,7 @@ group :development do
   gem "bundler-audit"
   gem "spring"
   gem "spring-commands-rspec"
+  gem "sunspot_solr"
 end
 
 group :development, :test do

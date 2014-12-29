@@ -11,3 +11,6 @@
 /public/system
 /tags
 /tmp/*
+/solr/default/data/*
+/solr/development/*
+/solr/test/data/*
