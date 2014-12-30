@@ -7,11 +7,8 @@
   <%= link_to @match_request.opponent_username, @match_request.opponent %>
   (<%= @match_request.opponent.elo %>)
 </p>
-<p>
-  Between <%= @match_request.start_date %> and <%= @match_request.end_date %>
-</p>
 <p>Message: <%= @match_request.request_message %></p>
-  The Final Date and Time is set to:
+  The Date and Time is set to:
   <%= @match_request.match_at || 'Undecided' %>
 </p>
 
