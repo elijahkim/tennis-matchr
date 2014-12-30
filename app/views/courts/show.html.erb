@@ -1,0 +1,6 @@
+<h1><%= @court.name %></h1>
+<p><%= @court.address %></p>
+<%= link_to "Delete", court_path(@court), method: :delete %>
+<%= link_to "Edit", edit_court_path(@court) %>
+
+<div id="map"></div>

@@ -1,0 +1,9 @@
+<h1>Courts</h1>
+
+<%= link_to "New Court", new_court_path %>
+
+<% @courts.each do |court| %>
+  <div><%= link_to court.name, court %></div>
+<% end %>
+
+<div id="map" data-markers="<%= @markers.html_safe %>"></div>
