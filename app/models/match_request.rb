@@ -12,13 +12,10 @@ class MatchRequest < ActiveRecord::Base
     scope: :requester,
     message: "should be unique"
   }
-  validates :opponent_elo, presence: true
   validates :requester, presence: true
-  validates :requester_elo, presence: true
   validates :request_message, presence: true
 
-  validates_with DateRangeValidator
-  validates_with MatchDateInDateRangeValidator
+  validates_with MatchNotRequestedWithSelfValidator
 
   delegate :username, to: :opponent, prefix: true
   delegate :username, to: :requester, prefix: true

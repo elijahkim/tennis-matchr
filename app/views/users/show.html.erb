@@ -4,7 +4,6 @@
 </div>
 
 <div class="matches">
-<h3>Match History</h3>
 
 <div>
   <% if current_user.requested?(@user) %>
@@ -15,7 +14,7 @@
         match_request_path(current_user.requested_match(@user))
       ) %>
     </p>
-  <% elsif signed_in? %>
+  <% elsif signed_in? && @user != current_user %>
     <%= link_to(
       "Request a match with #{@user.username}",
       new_user_match_request_path(@user)
