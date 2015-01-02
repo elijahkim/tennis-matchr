@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   attr_accessor :transformed_rating, :expected_score, :score_value
-  paginates_per 20
 
   validates :email, presence: true, uniqueness: true
   validates :first_name, presence: true
@@ -35,6 +34,12 @@ class User < ActiveRecord::Base
 
   delegate :pending, to: :incoming_match_requests, prefix: true
   delegate :pending, to: :outgoing_match_requests, prefix: true
+
+  paginates_per 20
+
+  searchable do
+    text :username, :elo, :first_name, :last_name, :email
+  end
 
   def requested?(user)
     !!requested_match(user)

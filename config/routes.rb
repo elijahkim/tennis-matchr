@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :matches, only: [:show, :edit, :update, :index]
   resource :match_history, only: [:show]
   resource :activity_feeds, only: [:show]
+  resource :search, only: [:show]
 
   constraints Monban::Constraints::SignedIn.new do
     root "activity_feeds#show", as: :dashboard
