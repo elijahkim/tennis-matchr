@@ -16,6 +16,7 @@
 //= require jquery.datetimepicker
 //= require jquery.datetimepicker/init
 //= require owl.carousel
+//= require mapbox.js
 
 $('.datetimepicker').datetimepicker();
 $(".owl-carousel").owlCarousel({

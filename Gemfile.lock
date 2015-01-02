@@ -91,6 +91,7 @@ GEM
       activesupport
       capybara
       i18n
+    geocoder (1.2.6)
     high_voltage (2.2.1)
     highline (1.6.21)
     hike (1.2.3)
@@ -117,6 +118,7 @@ GEM
       addressable (~> 2.3)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    mapbox-rails (1.6.1.1)
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.1)
@@ -269,12 +271,14 @@ DEPENDENCIES
   factory_girl_rails
   flutie
   formulaic
+  geocoder
   high_voltage
   i18n-tasks
   jquery-datetimepicker-rails
   jquery-rails
   kaminari
   launchy
+  mapbox-rails
   monban
   monban-generators
   neat (~> 1.5.1)
