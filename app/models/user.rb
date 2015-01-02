@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
   has_many :requesters, through: :incoming_match_requests
   has_many :activities
 
+  belongs_to :court
+
   delegate :pending, to: :incoming_match_requests, prefix: true
   delegate :pending, to: :outgoing_match_requests, prefix: true
 

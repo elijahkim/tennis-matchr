@@ -2,6 +2,7 @@ header {
   @include outer-container;
   @include clearfix;
   padding: 1em 0 0 0;
+  margin: 0 auto;
 
   h1 {
     float: left;
@@ -21,15 +22,16 @@ header {
     display: inline;
     padding: .5em;
     white-space: nowrap;
+    margin-top: .4em;
   }
 
   .child-nav {
     @include outer-container;
     margin: 0;
     clear: both;
-    background-color: $grey;
     border: 0;
     padding: 1em;
+    width: 100%;
   }
 
   .links {
@@ -47,12 +49,32 @@ header {
     @include omega();
     padding: 0;
     float: right;
-    display: inline;
   }
 
   #search {
     margin: 0;
     width: 70%;
-    padding: .3em;
+    padding: .5em;
+    display: inline;
   }
+
+  .search-button {
+    margin-top: -3px;
+    display: inline;
+    padding: .5em;
+    border: 1px solid $orange;
+  }
+}
+
+.grey-box {
+  position: absolute;
+  width: 100%;
+  background-color: $grey;
+  z-index: -1;
+  height: 4.2em;
+  margin-top: -4.2em;
+}
+
+.flash {
+  text-align: center
 }

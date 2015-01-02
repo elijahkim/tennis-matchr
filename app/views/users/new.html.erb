@@ -1,39 +1,31 @@
+<div class="base-container">
 <%= form_for @user do |form| %>
-
   <%= render partial: "app/error", locals: { object: @user } %>
 
-  <div>
-    <%= form.label :username %>
-    <%= form.text_field :username %>
-  </div>
-  <div>
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
-  </div>
-  <div>
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
-  <div>
-    <%= form.label :rank %>
-    <%= form.text_field :rank %>
-  </div>
-  <div>
-    <%= form.label :bio %>
-    <%= form.text_area :bio %>
-  </div>
-  <div>
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-  <div>
-    <%= form.submit "Sign up" %>
-  </div>
+  <%= form.label :username %>
+  <%= form.text_field :username %>
+
+  <%= form.label :first_name %>
+  <%= form.text_field :first_name %>
+
+  <%= form.label :last_name %>
+  <%= form.text_field :last_name %>
+
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+
+  <%= form.label :rank %>
+  <%= form.text_field :rank %>
+
+  <%= form.label :bio %>
+  <%= form.text_area :bio %>
+
+  <%= form.label :image_url %>
+  <%= form.text_field :image_url %>
+
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+
+  <%= form.submit "Sign up" %>
 <% end %>
+</div>

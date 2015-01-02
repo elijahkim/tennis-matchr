@@ -1,3 +1,4 @@
+<div class="base-container">
 <h1>Request a Match with <%= @opponent.username %></h1>
 
 <%= form_for [@opponent, @match_request] do |f| %>
@@ -11,3 +12,4 @@
 
   <%= f.submit %>
 <% end %>
+</div>

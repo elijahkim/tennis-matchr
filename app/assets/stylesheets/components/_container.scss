@@ -1,11 +1,12 @@
 .container {
-  @include outer-container;
   padding: 1em 0 1em 0;
   text-align: left;
-  width: 50em;
+  width: 100%;
   margin: 0 auto;
   display: block;
 }
 
-img {
+.base-container {
+  @include outer-container;
+  width: 50em;
 }

@@ -1,31 +1,28 @@
+<div class="base-container">
 <%= form_for @user do |form| %>
   <%= render partial: "app/error", locals: { object: @user } %>
 
-  <div>
     <%= form.label :username %>
     <%= form.text_field :username %>
-  </div>
-  <div>
+
     <%= form.label :first_name %>
     <%= form.text_field :first_name %>
-  </div>
-  <div>
+
     <%= form.label :last_name %>
     <%= form.text_field :last_name %>
-  </div>
-  <div>
+
     <%= form.label :rank %>
     <%= form.text_field :rank %>
-  </div>
-  <div>
+
     <%= form.label :bio %>
     <%= form.text_area :bio %>
-  </div>
-  <div>
+
+    <%= form.label :court, "Home Court" %>
+    <%= form.collection_select :court_id, Court.all, :id, :name %>
+
     <%= form.label :image_url %>
     <%= form.text_field :image_url %>
-  <div>
-  <div>
+
     <%= form.submit %>
-  </div>
 <% end %>
+</div>

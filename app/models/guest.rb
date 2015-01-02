@@ -10,4 +10,8 @@ class Guest
   def requested?(_user)
     false
   end
+
+  def court
+    false
+  end
 end

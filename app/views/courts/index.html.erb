@@ -1,9 +1,32 @@
-<h1>Courts</h1>
+<div class="map-container">
+</div>
 
-<%= link_to "New Court", new_court_path %>
-
-<% @courts.each do |court| %>
-  <div><%= link_to court.name, court %></div>
-<% end %>
-
+<div class="full-page-map">
 <div id="map" data-markers="<%= @markers.html_safe %>"></div>
+</div>
+
+<%= content_for :javascript do %>
+  <script>
+    $(function() {
+      L.mapbox.accessToken = "pk.eyJ1IjoiZWxpa2ltIiwiYSI6Ik1YSm9TY3cifQ.-aONewTGq_GmSuvGS7xQaQ"
+      var map = L.mapbox.map('map', 'elikim.kkgb4e2p').
+        <% if signed_in? %>
+          setView(
+            [<%= current_user.court.latitude %>, <%= current_user.court.longitude %>],
+            14);
+        <% else %>
+          setView([40.74, -73.98], 14);
+        <% end %>
+
+      <% @courts.each do |court| %>
+          var marker = L.marker([<%= court.latitude %>, <%= court.longitude %>], {
+        icon: L.mapbox.marker.icon({
+          'marker-color': '#9c89cc'
+        })
+      })
+        .bindPopup('<ul><li><%= link_to court.name, court %></li><li><%= court.address %></li><li>Avg Elo: <%= court.calculate_average_elo %></li></ul>')
+        .addTo(map);
+    <% end %>
+    });
+  </script>
+<% end %>
