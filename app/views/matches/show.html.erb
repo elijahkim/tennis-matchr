@@ -1,3 +1,4 @@
+<div class="base-container">
 <h1>
   <%= @match.challenger_username %>(<%= @match.challenger_elo %>) vs.
   <%= @match.defender_username %>(<%= @match.defender_elo %>)
@@ -10,3 +11,4 @@
 <% elsif @match.player?(current_user) && !@match.winner? %>
   <p><%= link_to "Submit Score", edit_match_path(@match) %></p>
 <% end %>
+</div>

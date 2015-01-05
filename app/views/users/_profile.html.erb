@@ -2,8 +2,13 @@
   <li>Username: <%= user.username %></li>
   <li>Name: <%= user.first_name %> <%= user.last_name %></li>
   <li>Elo: <%= user.elo %></li>
-  <li>Rank: <%= user.rank %></li>
   <li>Description: <%= user.bio %></li>
+  <li>Home Court: 
+    <% if user.court %>
+      <%= link_to user.court.name, user.court %></li>
+    <% else %>
+      N/A </li>
+    <% end %>
   <% if user == current_user %>
     <li>
       <%= link_to(

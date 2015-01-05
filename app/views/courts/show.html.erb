@@ -1,6 +1,50 @@
+<div class="court-show-container">
 <h1><%= @court.name %></h1>
 <p><%= @court.address %></p>
+<p>Average Elo: <%= @court.calculate_average_elo %></p>
+<% if signed_in? %>
+  <p>(<%= @court.distance_to(current_user.court).round(2) %> miles away)</p>
+<% end %>
 <%= link_to "Delete", court_path(@court), method: :delete %>
 <%= link_to "Edit", edit_court_path(@court) %>
 
-<div id="map"></div>
+<div class="information">
+  <div class="court-regulars">
+    <h3>Court Regulars</h3>
+    <ul>
+      <% @court.users.each do |user| %>
+        <li>
+          <%= link_to user do %>
+            <%= user.username %>,
+            elo: <%= user.elo %>
+        <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="small-map">
+    <div id="map"></div>
+  </div>
+</div>
+<div class="comments">
+</div>
+
+<%= content_for :javascript do %>
+  <script>
+    $(function() {
+      L.mapbox.accessToken = "pk.eyJ1IjoiZWxpa2ltIiwiYSI6Ik1YSm9TY3cifQ.-aONewTGq_GmSuvGS7xQaQ"
+      var map = L.mapbox.map('map', 'elikim.kkgb4e2p').
+        setView(
+          [<%= @court.latitude %>, <%= @court.longitude %>],
+          15);
+
+          var marker = L.marker([<%= @court.latitude %>, <%= @court.longitude %>], {
+        icon: L.mapbox.marker.icon({
+          'marker-color': '#9c89cc'
+        })
+          })
+        .addTo(map);
+    });
+  </script>
+<% end %>

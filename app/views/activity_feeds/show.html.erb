@@ -1,6 +1,6 @@
-<container class="activity-feed">
-<h1>Activity Feed</h1>
+<div class="base-container">
+<h1 class="h1-banner">Activity Feed</h1>
 
 <%= render @activities || "You don't have any activity" %>
 <%= paginate @activities %>
-</container>
+</div>
