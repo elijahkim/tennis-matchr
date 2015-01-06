@@ -10,3 +10,8 @@
   @include outer-container;
   width: 50em;
 }
+
+.form-container {
+  @include outer-container;
+  width: 30em;
+}

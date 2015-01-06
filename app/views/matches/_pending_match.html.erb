@@ -1,0 +1,6 @@
+<div class="activity">
+<%= link_to match_path(match) do %>
+  <%= match.challenger_username %> vs <%= match.defender_username %>
+  <small>at <%= match.match_at %></small>
+<% end %>
+</div>

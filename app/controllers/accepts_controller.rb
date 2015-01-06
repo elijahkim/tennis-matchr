@@ -8,7 +8,7 @@ class AcceptsController < ApplicationController
       new(match_request).
       accept_match_request_activities
 
-    redirect_to :back
+    redirect_to root_path
   end
 
   private

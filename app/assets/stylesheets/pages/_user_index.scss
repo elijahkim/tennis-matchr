@@ -1,11 +1,10 @@
 .box {
-  @include span-columns(3);
-  @include omega(5n);
+  @include span-columns(2.93);
   padding-top: 1em;
 }
 
 .image-container {
-  height: 150px;
+  height: 10em;
   background-size: cover;
   background-position: center center;
 
