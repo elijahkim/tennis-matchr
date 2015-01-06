@@ -1,4 +1,4 @@
-<div class="base-container">
+<div class="form-container">
 <h1>Edit Match Request</h1>
 
 <%= form_for @match_request do |f| %>
@@ -7,6 +7,8 @@
   <%= f.label :match_at %>
   <%= f.datetime_field :match_at, class: "datetimepicker" %>
 
-  <%= f.submit %>
+  <div>
+    <%= f.submit %>
+  </div>
 <% end %>
 </div>

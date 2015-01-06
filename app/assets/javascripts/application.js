@@ -18,7 +18,10 @@
 //= require owl.carousel
 //= require mapbox.js
 
-$('.datetimepicker').datetimepicker();
+$('.datetimepicker').datetimepicker({
+  inline: true,
+});
+
 $(".owl-carousel").owlCarousel({
   navigation: true,
   slideSpeed: 300,

@@ -2,7 +2,7 @@
 <h1><%= @court.name %></h1>
 <p><%= @court.address %></p>
 <p>Average Elo: <%= @court.calculate_average_elo %></p>
-<% if signed_in? %>
+<% if signed_in? && current_user.court %>
   <p>(<%= @court.distance_to(current_user.court).round(2) %> miles away)</p>
 <% end %>
 <%= link_to "Delete", court_path(@court), method: :delete %>

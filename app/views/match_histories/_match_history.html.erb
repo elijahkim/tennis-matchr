@@ -1,0 +1,9 @@
+<li class="<%= match.match_outcome_class %>">
+<div class="match-stats">
+  <p class="username"><%= match.challenger_username %> vs. <%= match.defender_username %></p>
+  <p><%= match.match_at.strftime("%F") %></p>
+  <p><%= match.win_or_lose %></p>
+  <p><%= match.elo_delta %> </p>
+  <p class="match-link"><%= link_to "Match Link", match_path(match) %></p>
+</div>
+</li>

@@ -38,6 +38,12 @@ class UsersController < ApplicationController
     @users = User.all.order(created_at: :desc).page params[:page]
   end
 
+  def destroy
+    user.destroy
+
+    redirect_to root_path
+  end
+
   private
 
   def user_params

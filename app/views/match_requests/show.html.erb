@@ -9,7 +9,7 @@
   (<%= @match_request.opponent.elo %>)
 </p>
 <p>Message: <%= @match_request.request_message %></p>
-  The Date and Time is set to:
+  The date and time is set to:
   <%= @match_request.match_at || 'Undecided' %>
 </p>
 
@@ -33,7 +33,7 @@
       edit_match_request_path(@match_request)
     )%>
     <%= button_to(
-      "Decline",
+      "Cancel",
       match_request_path(@match_request),
       method: :delete
     )%>

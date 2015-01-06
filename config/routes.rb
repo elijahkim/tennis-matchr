@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy, :edit, :update]
   end
   resources :matches, only: [:show, :edit, :update, :index]
-  resources :users, except: [:destroy] do
+  resources :users do
     resources :match_requests, only: [:new, :create]
   end
 

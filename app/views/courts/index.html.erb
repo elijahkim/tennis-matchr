@@ -10,7 +10,7 @@
     $(function() {
       L.mapbox.accessToken = "pk.eyJ1IjoiZWxpa2ltIiwiYSI6Ik1YSm9TY3cifQ.-aONewTGq_GmSuvGS7xQaQ"
       var map = L.mapbox.map('map', 'elikim.kkgb4e2p').
-        <% if signed_in? %>
+        <% if signed_in? && current_user.court %>
           setView(
             [<%= current_user.court.latitude %>, <%= current_user.court.longitude %>],
             14);

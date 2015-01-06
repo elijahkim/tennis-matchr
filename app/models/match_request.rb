@@ -14,6 +14,7 @@ class MatchRequest < ActiveRecord::Base
   }
   validates :requester, presence: true
   validates :request_message, presence: true
+  validates :match_at, presence: true
 
   validates_with MatchNotRequestedWithSelfValidator
 

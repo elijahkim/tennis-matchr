@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
 
   has_many :comments
+
   has_many(
     :incoming_matches,
     class_name: "Match",
@@ -37,7 +38,7 @@ class User < ActiveRecord::Base
   delegate :pending, to: :incoming_match_requests, prefix: true
   delegate :pending, to: :outgoing_match_requests, prefix: true
 
-  paginates_per 20
+  paginates_per 12
 
   searchable do
     text :username, :elo, :first_name, :last_name, :email
@@ -52,6 +53,9 @@ class User < ActiveRecord::Base
   end
 
   def matches
-    outgoing_matches.append(incoming_matches).order(match_at: :asc)
+    Match.where(
+      "challenger_id = :user_id OR defender_id = :user_id",
+      user_id: id).
+      order(match_at: :desc)
   end
 end
