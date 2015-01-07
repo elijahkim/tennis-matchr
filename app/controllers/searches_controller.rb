@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
   private
 
   def search
-    @results = User.search do
+    @results = Sunspot.search [User, Court] do
       fulltext params[:search]
     end
   end

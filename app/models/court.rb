@@ -5,6 +5,11 @@ class Court < ActiveRecord::Base
 
   has_many :users
 
+  searchable do
+    text :name
+    text :address
+  end
+
   def calculate_distance(court_one, court_two)
     court_one.distance_to(court_two.latitude, court_two.longitude).round(2)
   end
