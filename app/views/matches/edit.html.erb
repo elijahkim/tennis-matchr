@@ -1,8 +1,9 @@
 <div class="form-container">
 <h1>Report Your Score</h1>
 
+<div class="match-winner-form">
 <%= form_for @match do |f| %>
-  <%= f.label :winner %>
+  <%= f.label :winner, "Winner: " %>
 
   <%= f.label @match.challenger_username %>
   <%= f.radio_button(:winner_id, @match.challenger_id) %>
@@ -10,6 +11,9 @@
   <%= f.label @match.defender_username %>
   <%= f.radio_button(:winner_id, @match.defender_id) %>
 
-  <%= f.submit "Report Score" %>
+  <div>
+    <%= f.submit "Report Score" %>
+  </div>
 <% end %>
+</div>
 </div>

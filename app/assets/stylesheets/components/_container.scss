@@ -1,4 +1,7 @@
 .container {
+  h1 {
+    text-align: center;
+  }
   padding: 1em 0 1em 0;
   text-align: left;
   width: 100%;
@@ -14,4 +17,14 @@
 .form-container {
   @include outer-container;
   width: 30em;
+}
+
+.comments {
+  clear: both;
+}
+
+.match-winner-form {
+  label {
+    display: inline;
+  }
 }

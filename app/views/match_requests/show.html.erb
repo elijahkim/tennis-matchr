@@ -18,7 +18,7 @@
     <p>Match is confirmed</p>
   <% elsif !@match_request.confirmed? && @match_request.opponent == current_user %>
     <%= link_to(
-      "Set Match Time",
+      "Edit Match Time",
       edit_match_request_path(@match_request)
     )%>
     <%= button_to "Accept", match_request_accept_path(@match_request) %>
@@ -29,7 +29,7 @@
     )%>
   <% elsif !@match_request.confirmed? && @match_request.player?(current_user) %>
     <%= link_to(
-      "Set Match Time",
+      "Edit Match Time",
       edit_match_request_path(@match_request)
     )%>
     <%= button_to(
@@ -40,6 +40,7 @@
   <% end %>
 </div>
 
+<div class="comments">
 <h2>Comments</h2>
 
 <%= render(
@@ -48,4 +49,5 @@
 )%>
 
 <%= render @match_request.get_comments %>
+</div>
 </div>
