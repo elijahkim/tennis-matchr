@@ -1,3 +1,8 @@
+<script>
+  window.MAPBOX_ACCESS_TOKEN = "<%= ENV['MAPBOX_ACCESS_TOKEN'] %>";
+  window.MAPBOX_USER_NAME = "<%= ENV['MAPBOX_USER_NAME'] %>";
+</script>
+
 <%= javascript_include_tag :application %>
 
 <%= yield :javascript %>

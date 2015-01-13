@@ -1,7 +1,7 @@
 class CourtsController < ApplicationController
   def index
     @courts = Court.all
-    @markers = GeoJsonBuilder.new(@courts).build
+    @center_court = current_user.court || NullCourt.new
   end
 
   def show

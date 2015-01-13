@@ -14,3 +14,6 @@
 /solr/default/data/*
 /solr/development/*
 /solr/test/data/*
+/solr/pids/*
+logfile
+.env
