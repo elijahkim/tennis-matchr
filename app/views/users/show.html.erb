@@ -6,21 +6,21 @@
 
 <div class="matches">
 
-<div>
-  <% if current_user.requested?(@user) %>
-    <p> You have an open match request with <%= @user.username %></p>
-    <p>
+  <div>
+    <% if current_user.requested?(@user) %>
+      <p> You have an open match request with <%= @user.username %></p>
+      <p>
       <%= link_to(
         "Match Request",
         match_request_path(current_user.requested_match(@user))
       ) %>
     </p>
-  <% elsif signed_in? && @user != current_user %>
-    <%= link_to(
-      "Request a match with #{@user.username}",
-      new_user_match_request_path(@user)
-    ) %>
-  <% end %>
-</div>
+    <% elsif signed_in? && @user != current_user %>
+      <%= link_to(
+          "Request a match with #{@user.username}",
+          new_user_match_request_path(@user)
+        ) %>
+      <% end %>
+  </div>
 </div>
 </div>

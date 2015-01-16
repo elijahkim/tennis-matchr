@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   resource :search, only: [:show]
   resource :session, only: [:new, :create, :destroy]
 
+  namespace :api do
+    resources :courts, only: [:index, :show]
+  end
+
   constraints Monban::Constraints::SignedIn.new do
     root "activity_feeds#show", as: :dashboard
   end

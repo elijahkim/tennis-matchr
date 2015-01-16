@@ -1,8 +1,8 @@
-<div class="court-show-container">
+<div class="court-show-container" data-court-id="<%= @court.id %>">
 <h1><%= @court.name %></h1>
 <p><%= @court.address %></p>
 <p>Average Elo: <%= @court.calculate_average_elo %></p>
-<% if signed_in? && current_user.court %>
+<% if signed_in? %>
   <p>(<%= @court.distance_to(current_user.court).round(2) %> miles away)</p>
 <% end %>
 <%= link_to "Delete", court_path(@court), method: :delete %>
@@ -29,22 +29,3 @@
 </div>
 <div class="comments">
 </div>
-
-<%= content_for :javascript do %>
-  <script>
-    $(function() {
-      L.mapbox.accessToken = "pk.eyJ1IjoiZWxpa2ltIiwiYSI6Ik1YSm9TY3cifQ.-aONewTGq_GmSuvGS7xQaQ"
-      var map = L.mapbox.map('map', 'elikim.kkgb4e2p').
-        setView(
-          [<%= @court.latitude %>, <%= @court.longitude %>],
-          15);
-
-          var marker = L.marker([<%= @court.latitude %>, <%= @court.longitude %>], {
-        icon: L.mapbox.marker.icon({
-          'marker-color': '#9c89cc'
-        })
-          })
-        .addTo(map);
-    });
-  </script>
-<% end %>

@@ -12,6 +12,6 @@ class Guest
   end
 
   def court
-    false
+    NullCourt.new
   end
 end
