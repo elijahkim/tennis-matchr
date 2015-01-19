@@ -1,6 +1,6 @@
 class Api::CourtsController < ApplicationController
   def index
-    render json: Court.all.to_json
+    render json: Court.all.as_json(methods: [:average_elo])
   end
 
   def show
