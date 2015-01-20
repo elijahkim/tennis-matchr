@@ -39,3 +39,25 @@
   width: 20em;
   display: inline;
 }
+
+.information-box {
+  z-index: 1;
+  margin-left: 1em;
+  width: 20em;
+  display: block;
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+
+  div {
+    padding-left: .3em;
+  }
+
+  a {
+    padding-left: .3em;
+    color: $yellow;
+
+    &:hover{
+      color: darken($yellow, 30%);
+    }
+  }
+}

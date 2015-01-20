@@ -18,7 +18,7 @@ class Court < ActiveRecord::Base
     distance_to(court.latitude, court.longitude)
   end
 
-  def calculate_average_elo
+  def average_elo
     if users.count == 0
       "No Local Users"
     else
